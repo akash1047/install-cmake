@@ -1,0 +1,20 @@
+name: Install cmake
+description: Clones cmake's repo, builds cmake and installs
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout cmake repository
+      uses: actions/checkout@v5
+      with:
+        repository: Kitware/CMake
+
+    - name: Compile cmake
+      shell: bash
+      run: |
+        set -ex
+        ./bootstrap --parallel=$(nproc) && make -j$(nproc)
+
+    - name: Install cmake
+      shell: bash
+      run: sudo make install
