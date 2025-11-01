@@ -23,7 +23,7 @@ jobs:
       # 1. Install the latest CMake from source globally
       # This makes the new 'cmake' binary available in the PATH.
       - name: Install latest CMake
-        uses: akash1047/install-cmake@main
+        uses: akash1047/install-cmake@v1
 
       # 2. Checkout your project's code
       # It is best practice to check out your code AFTER installing global tools.
